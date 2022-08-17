@@ -11,7 +11,7 @@
     "test:ci": "npm test -- --coverage"
   },
   "keywords": [],
-  "author": "",
+  "author": "Claudia Gomes",
   "license": "ISC",
   "devDependencies": {
     "@testing-library/react": "^13.3.0",
