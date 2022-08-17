@@ -1,0 +1,18 @@
+@import "../../styles/colors.scss";
+
+.header {
+  display: flex;
+  flex-direction: column;
+  background-color: $primary;
+  align-items: center;
+  border-top: 40px solid $primaryDark; // item do topo
+
+  img {
+    margin-top: 40px;
+  }
+
+  h1 {
+    color: $white;
+    margin: 16px 0px 40px; //top, 0esq e dire, baixo
+  }
+}

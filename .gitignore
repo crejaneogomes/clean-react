@@ -1,0 +1,5 @@
+node_modules
+.vscode
+coverage
+public/js
+.DS_Store
