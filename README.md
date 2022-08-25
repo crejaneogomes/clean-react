@@ -12,6 +12,7 @@ Camadas:
 - main
 
 Para rodar: npm install -> npm start
+
 Para rodar os testes: npm run test
 
 
