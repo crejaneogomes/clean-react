@@ -1,5 +1,5 @@
 import React from 'react'
-import Faker from 'faker'
+import { faker } from '@faker-js/faker'
 import { MemoryRouter as Router } from 'react-router-dom'
 import { cleanup, fireEvent, getByTestId, render, RenderResult, waitFor } from '@testing-library/react'
 import { Login } from '@/presentation/pages'
@@ -33,8 +33,8 @@ const makeSut = (params?: SutParams): SutTypes => {
 
 const simulateValidSubmit = (
   sut: RenderResult,
-  email: string = Faker.internet.email(),
-  password: string = Faker.internet.password()
+  email: string = faker.internet.email(),
+  password: string = faker.internet.password()
 ): void => {
   populateEmailField(sut, email)
   populatePasswordField(sut, password)
@@ -43,14 +43,14 @@ const simulateValidSubmit = (
 }
 
 const populateEmailField = (sut: RenderResult,
-  email: string = Faker.internet.email()
+  email: string = faker.internet.email()
 ): void => {
   const emailInput = sut.getByTestId('email')
   fireEvent.input(emailInput, { target: { value: email } })
 }
 
 const populatePasswordField = (sut: RenderResult,
-  password: string = Faker.internet.password()
+  password: string = faker.internet.password()
 ): void => {
   const passwordInput = sut.getByTestId('password')
   fireEvent.input(passwordInput, { target: { value: password } })
@@ -92,7 +92,7 @@ describe('Login Page', () => {
   beforeEach(() => { localStorage.clear() })
 
   test('Should start with initial state', async () => {
-    const validationError = Faker.random.words()
+    const validationError = faker.random.words()
     const { sut } = makeSut({ validationError })
     testErrorWrapChildCount(sut, 0)
     testButtonIsDisabled(sut, 'submit', true)
@@ -101,14 +101,14 @@ describe('Login Page', () => {
   })
 
   test('Should show email error if validation fales', async () => {
-    const validationError = Faker.random.words()
+    const validationError = faker.random.words()
     const { sut } = makeSut({ validationError })
     populateEmailField(sut)
     await testStatusForField(sut, 'email', validationError)
   })
 
   test('Should show email error if validation fales', async () => {
-    const validationError = Faker.random.words()
+    const validationError = faker.random.words()
     const { sut } = makeSut({ validationError })
     populatePasswordField(sut)
     await testStatusForField(sut, 'password', validationError)
@@ -143,8 +143,8 @@ describe('Login Page', () => {
 
   test('Should call authentication with correct values', async () => {
     const { sut, authenticationSpy } = makeSut()
-    const email = Faker.internet.email()
-    const password = Faker.internet.password()
+    const email = faker.internet.email()
+    const password = faker.internet.password()
     simulateValidSubmit(sut, email, password)
     await waitFor(() => {
       expect(authenticationSpy.params).toStrictEqual({ email, password })
@@ -161,7 +161,7 @@ describe('Login Page', () => {
   })
 
   test('Should not call authentication if from is invlid', async () => {
-    const validationError = Faker.random.words()
+    const validationError = faker.random.words()
     const { sut, authenticationSpy } = makeSut({ validationError })
     simulateValidSubmit(sut)
     await waitFor(() => {

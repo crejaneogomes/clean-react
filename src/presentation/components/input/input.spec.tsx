@@ -1,5 +1,5 @@
 import React from 'react'
-import Faker from 'faker'
+import { faker } from '@faker-js/faker'
 import { fireEvent, render, RenderResult } from '@testing-library/react'
 import Input from './input'
 import Context from '@/presentation/components/contexts/form/form-context'
@@ -13,14 +13,14 @@ const makeSut = (inputName: string): RenderResult => {
 }
 describe('InputComponent', () => {
   test('Should begin with readonly', () => {
-    const inputName = Faker.database.column()
+    const inputName = faker.database.column()
     const sut = makeSut(inputName)
     const input = sut.getByTestId(inputName) as HTMLInputElement
     expect(input.readOnly).toBe(true)
   })
 
   test('Should remove readonly on focus', () => {
-    const inputName = Faker.database.column()
+    const inputName = faker.database.column()
     const sut = makeSut(inputName)
     const input = sut.getByTestId(inputName) as HTMLInputElement
     fireEvent.focus(input)

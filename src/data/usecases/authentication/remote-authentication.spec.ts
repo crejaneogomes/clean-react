@@ -5,7 +5,7 @@ import { mockAccount, mockAuthentication } from '@/domain/test'
 import { InvalidCredentialsError, UnexpectedError } from '@/domain/errors'
 import { AuthenticationParams } from '@/domain/useCases'
 import { AccountModel } from '@/domain/models'
-import faker from 'faker'
+import { faker } from '@faker-js/faker'
 
 type SutTypes = {
   stu: RemoteAuthentication

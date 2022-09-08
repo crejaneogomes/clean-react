@@ -1,5 +1,5 @@
 import { AuthenticationParams } from '@/domain/useCases'
-import faker from 'faker'
+import { faker } from '@faker-js/faker'
 import { AccountModel } from '@/domain/models'
 
 export const mockAuthentication = (): AuthenticationParams => ({
@@ -8,5 +8,5 @@ export const mockAuthentication = (): AuthenticationParams => ({
 })
 
 export const mockAccount = (): AccountModel => ({
-  accessToken: faker.random.uuid()
+  accessToken: faker.datatype.uuid()
 })
