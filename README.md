@@ -1,3 +1,4 @@
+[![Build Status](https://app.travis-ci.com/crejaneogomes/clean-react.svg?branch=main)](https://app.travis-ci.com/crejaneogomes/clean-react)
 # clean-react
 
 Esse projeto contém uma implementação de uma aplicação front-end utilizando o padrão arquitetural Clean Architecture.
