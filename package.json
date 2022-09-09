@@ -10,7 +10,6 @@
     "test:staged": "npm test -- --findRelatedTests",
     "test:ci": "npm test -- --coverage",
     "check": "npm-check -u -s",
-    "prepare": "husky install",
     "lint": "eslint src/**"
   },
   "keywords": [],
