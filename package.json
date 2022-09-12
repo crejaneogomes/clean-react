@@ -10,7 +10,8 @@
     "test:staged": "npm test -- --findRelatedTests",
     "test:ci": "npm test -- --coverage",
     "check": "npm-check -u -s",
-    "lint": "eslint src/**"
+    "lint": "eslint src/**",
+    "test:coveralls": "npm run test:ci && coveralls < coverage/lcov.info"
   },
   "keywords": [],
   "author": "Claudia Gomes",
@@ -25,6 +26,7 @@
     "@types/react-dom": "^18.0.4",
     "@typescript-eslint/eslint-plugin": "^5.8.0",
     "clean-webpack-plugin": "^4.0.0",
+    "coveralls": "^3.1.1",
     "css-loader": "^6.7.1",
     "eslint": "^8.21.0",
     "eslint-config-standard-with-typescript": "^22.0.0",
